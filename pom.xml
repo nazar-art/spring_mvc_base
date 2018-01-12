@@ -13,7 +13,7 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <spring.version>3.2.0.RELEASE</spring.version>
+        <spring.version>3.2.6.RELEASE</spring.version>
     </properties>
 
     <dependencies>
@@ -27,7 +27,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>3.2.6.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
@@ -64,7 +64,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-oxm</artifactId>
-            <version>3.2.6.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <!--SPRING SECURITY-->
@@ -85,6 +85,20 @@
             <artifactId>commons-logging</artifactId>
             <version>1.2</version>
         </dependency>
+
+        <!--DB-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4-1206-jdbc42</version>
+        </dependency>
+
     </dependencies>
 
     <build>
