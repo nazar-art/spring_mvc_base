@@ -48,7 +48,7 @@
     <div class="hero-unit">
         <div>
             <h1>
-                Welcome to Fitness Tracker <sec:authentication property="username"/>!
+                Welcome to Fitness Tracker <sec:authentication property="name"/>!
             </h1>
             <p>
                 To get started, we need to enter a goal for what we want to exercise for
@@ -56,17 +56,17 @@
             </p>
         </div>
         <a class="btn btn-primary" href="addGoal.html">
-            Add Goal �
+            Add Goal >>
         </a>
 
         <sec:authorize ifAnyGranted="ROLE_ADMIN">
             <a class="btn btn-primary" href="editGoal.html">
-                Edit Goal �
+                Edit Goal >>
             </a>
         </sec:authorize>
 
         <a class="btn btn-primary" href="addMinutes.html">
-            Add Exercise Minutes �
+            Add Exercise Minutes >>
         </a>
     </div>
     <div>
