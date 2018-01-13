@@ -15,15 +15,6 @@
     <http auto-config="true">
         <intercept-url pattern="/**" access="ROLE_USER"/>
     </http>
-    
-    <authentication-manager>
-        <authentication-provider user-service-ref="userDetailsService"/>
-        <!--<authentication-provider>
-            <user-service>
-                <user name="bryan" password="secret" authorities="ROLE_USER"/>
-            </user-service>
-        </authentication-provider>-->
-    </authentication-manager>
 
     <beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <beans:property name="driverClassName" value="org.postgresql.Driver"/>
@@ -31,8 +22,28 @@
         <beans:property name="username" value=""/>
         <beans:property name="password" value=""/>
     </beans:bean>
+    
+    <authentication-manager>
+        <authentication-provider>
+            <jdbc-user-service data-source-ref="dataSource"/>
+        </authentication-provider>
+        <!--<authentication-provider user-service-ref="userDetailsService"/>-->
+    </authentication-manager>
+
+    <!--<beans:bean id="userDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+        <beans:property name="dataSource" ref="dataSource"/>
+    </beans:bean>-->
+
+    <!--<authentication-manager>
+        <authentication-provider user-service-ref="userDetailsService"/>
+        &lt;!&ndash;<authentication-provider>
+            <user-service>
+                <user name="bryan" password="secret" authorities="ROLE_USER"/>
+            </user-service>
+        </authentication-provider>&ndash;&gt;
+    </authentication-manager>
 
     <beans:bean id="userDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
         <beans:property name="dataSource" ref="dataSource"/>
-    </beans:bean>
+    </beans:bean>-->
 </beans:beans>
