@@ -6,7 +6,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class HashDemo {
     public static void main(String[] args) {
         Md5PasswordEncoder passwordEncoder = new Md5PasswordEncoder();
-        String hashedPass = passwordEncoder.encodePassword("OnTheRoad1955!", null);
+        String hashedPass = passwordEncoder.encodePassword("secret", null);
 
         System.out.println(hashedPass);
 
