@@ -28,4 +28,8 @@ UPDATE users
 SET password = "$2a$10$SwhxYcADJLD4fwYe.NtS4er2c7u5lJvp8V4aiaSCgwBdJD1/OCrPO/"
 WHERE username = "bryan" OR username = "chris";
 
+# 403 error
+INSERT INTO users (username, password, enabled) VALUES ("mark", "$2a$10$SwhxYcADJLD4fwYe.NtS4er2c7u5lJvp8V4aiaSCgwBdJD1/OCrPO", TRUE);
+
+INSERT INTO authorities (username, authority) VALUES ("mark", "ROLE_BAD");
 
