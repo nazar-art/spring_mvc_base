@@ -1,7 +1,6 @@
 package com.pluralsight.controller;
 
-import javax.validation.Valid;
-
+import com.pluralsight.model.Goal;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.pluralsight.model.Goal;
+import javax.validation.Valid;
 
 @Controller
 @SessionAttributes("goal")
@@ -26,7 +25,7 @@ public class GoalController {
 		return "addGoal";
 	}
 
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@PreAuthorize("hasRole('ROLE_ADMIN') and hasPermission(#goal, 'createGoal')")
 	@RequestMapping(value = "addGoal", method = RequestMethod.POST)
 	public String updateGoal(@Valid @ModelAttribute("goal") Goal goal, BindingResult result) {
 		
